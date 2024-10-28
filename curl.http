@@ -1,0 +1,20 @@
+@BASE_API_URL = http://localhost:3000
+
+#### 
+curl -X 'POST' \
+  '{{BASE_API_URL}}/tenants/create-company' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "companyName": "companyName1",
+  "user": {
+    "name": "name1",
+    "password": "12345678",
+    "email": "user1@yopmail.com"
+  }
+}'
+
+##### products
+curl -X 'GET' \
+  '{{BASE_API_URL}}/products' \
+  -H 'X-TENANT-ID: 925Fx6uN6vPO'

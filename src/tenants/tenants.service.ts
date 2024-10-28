@@ -31,7 +31,7 @@ export class TenantsService {
 
     //Create a tenant secret
     await this.authService.createSecretKeyForNewTenant(tenantId);
-    
+
     //Create new user
     await this.usersService.createUser(companyData.user, tenantId);
 
