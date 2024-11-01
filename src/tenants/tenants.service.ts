@@ -7,6 +7,8 @@ import { UsersService } from 'src/users/users.service';
 import { nanoid } from 'nanoid';
 import { AuthService } from 'src/auth/auth.service';
 
+console.log('🚀 ~ generate tenant id by nanoid:', nanoid()); // uLJ1pxCwbubv4H8E6Q_kz
+
 @Injectable()
 export class TenantsService {
   constructor(

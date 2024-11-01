@@ -1,6 +1,19 @@
 @BASE_API_URL = http://localhost:3000
 
 #### 
+# @name user_login
+curl -X 'POST' \
+  '{{BASE_API_URL}}/auth/login' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "password": "12345678",
+    "email": "user1@yopmail.com"
+  }'
+
+@USER_JWT                = {{user_login.response.body.accessToken}}
+
+#### tenants create new a company
 curl -X 'POST' \
   '{{BASE_API_URL}}/tenants/create-company' \
   -H 'accept: */*' \
@@ -17,4 +30,5 @@ curl -X 'POST' \
 ##### products
 curl -X 'GET' \
   '{{BASE_API_URL}}/products' \
+  -H 'authorization: Bearer {{USER_JWT}}' \
   -H 'X-TENANT-ID: 925Fx6uN6vPO'
